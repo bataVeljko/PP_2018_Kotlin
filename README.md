@@ -3,5 +3,7 @@
 Upoznavanje sa programskim jezikom Kotlin.
 
 Clanovi tima:
-  Marko Veljkovic 43/2015
-  Aleksandar Jakovljevic 156/2015
+
+- Marko Veljkovic 43/2015
+  
+- Aleksandar Jakovljevic 156/2015
