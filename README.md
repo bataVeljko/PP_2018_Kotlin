@@ -1,6 +1,6 @@
-# PP_2018_Kotlin
+# PP_2018_Raspored_casova
 
-Upoznavanje sa programskim jezikom Kotlin.
+Upoznavanje sa programskim jezikom Kotlin preko aplikacije za odabir predavanja iz dobijenog rasporeda casova generisanog izborom predmeta koji student slusa u tekucoj godini na MATF-u.
 
 Clanovi tima:
 
