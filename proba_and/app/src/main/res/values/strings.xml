@@ -1,0 +1,164 @@
+<resources>
+    <string name="app_name">MATF raspored časova</string>
+    <string name="osnovne">Osnovne</string>
+    <string name="master" />
+    <string name="Master">Master</string>
+    <string name="i">i</string>
+    <string name="m">m</string>
+    <string name="a">a</string>
+    <string name="I">I</string>
+    <string name="M">M</string>
+    <string name="informatika">Informatika</string>
+    <string name="matematika">Matematika</string>
+    <string name="astronomija">Astronomija</string>
+    <string name="ml">ML</string>
+    <string name="mm">MM</string>
+    <string name="mr">MR</string>
+    <string name="mp">MP</string>
+    <string name="ms">MS</string>
+    <string name="ma">MA</string>
+    <string name="ai">AI</string>
+    <string name="af">AF</string>
+    <string name="_1_godina">1. godina</string>
+    <string name="_2_godina">2. godina</string>
+    <string name="_3_godina">3. godina</string>
+    <string name="_4_godina">4. godina</string>
+    <string name="dalje">Dalje</string>
+    <string name="dobro_dosli_na_2_stranu">Dobro dosli na 2. stranu</string>
+    <string name="nivo_studija">Nivo studija</string>
+    <string name="modul">Modul</string>
+    <string name="zeljenje_godine">Zeljenje godine</string>
+    <string name="izabrani_predmeti">Izabrani Predmeti:</string>
+    <string name="moguci_predmeti">Moguci Predmeti:</string>
+    <string name="dalje2">Dalje</string>
+    <string name="smer">Smer</string>
+    <string name="svi">Svi</string>
+    <string name="izaberi_sve_predmete">Izaberi sve predmete</string>
+    <string name="izaberi_sve">Izaberi sve</string>
+    <string name="izberite_grupe_opciono">Izberite grupe (opciono)</string>
+    <string name="izaberite_lokacije_opciono">Izaberite lokacije (opciono)</string>
+    <string name="za_sada_nema_dalje_xd">Za sada nema dalje xD</string>
+    <string name="ponedeljak">Ponedeljak</string>
+    <string name="utorak">Utorak</string>
+    <string name="sreda">Sreda</string>
+    <string name="cetvrtak">Cetvrtak</string>
+    <string name="petak">Petak</string>
+    <string name="_08_00_09_00">08:00-09:00</string>
+    <string name="_09_00_10_00">09:00-10:00</string>
+    <string name="_10_00_11_00">10:00-11:00</string>
+    <string name="_11_00_12_00">11:00-12:00</string>
+    <string name="_12_00_13_00">12:00-13:00</string>
+    <string name="_13_00_14_00">13:00-14:00</string>
+    <string name="_14_00_15_00">14:00-15:00</string>
+    <string name="_15_00_16_00">15:00-16:00</string>
+    <string name="_16_00_17_00">16:00-17:00</string>
+    <string name="_17_00_18_00">17:00-18:00</string>
+    <string name="_18_00_19_00">18:00-19:00</string>
+    <string name="_19_00_20_00">19:00-20:00</string>
+    <string name="_20_00_21_00">20:00-21:00</string>
+    <string name="textview">TextView</string>
+    <string name="izaberi_drugu_grupu">Izaberi drugu grupu</string>
+    <string name="izaberi_novu_grupu2">Izaberi novu grupu</string>
+    <string name="title_activity_fifth">FifthActivity</string>
+    <string name="large_text">
+        "Material is the metaphor.\n\n"
+
+        "A material metaphor is the unifying theory of a rationalized space and a system of motion."
+        "The material is grounded in tactile reality, inspired by the study of paper and ink, yet "
+        "technologically advanced and open to imagination and magic.\n"
+        "Surfaces and edges of the material provide visual cues that are grounded in reality. The "
+        "use of familiar tactile attributes helps users quickly understand affordances. Yet the "
+        "flexibility of the material creates new affordances that supercede those in the physical "
+        "world, without breaking the rules of physics.\n"
+        "The fundamentals of light, surface, and movement are key to conveying how objects move, "
+        "interact, and exist in space and in relation to each other. Realistic lighting shows "
+        "seams, divides space, and indicates moving parts.\n\n"
+
+        "Bold, graphic, intentional.\n\n"
+
+        "The foundational elements of print based design typography, grids, space, scale, color, "
+        "and use of imagery guide visual treatments. These elements do far more than please the "
+        "eye. They create hierarchy, meaning, and focus. Deliberate color choices, edge to edge "
+        "imagery, large scale typography, and intentional white space create a bold and graphic "
+        "interface that immerse the user in the experience.\n"
+        "An emphasis on user actions makes core functionality immediately apparent and provides "
+        "waypoints for the user.\n\n"
+
+        "Motion provides meaning.\n\n"
+
+        "Motion respects and reinforces the user as the prime mover. Primary user actions are "
+        "inflection points that initiate motion, transforming the whole design.\n"
+        "All action takes place in a single environment. Objects are presented to the user without "
+        "breaking the continuity of experience even as they transform and reorganize.\n"
+        "Motion is meaningful and appropriate, serving to focus attention and maintain continuity. "
+        "Feedback is subtle yet clear. Transitions are efﬁcient yet coherent.\n\n"
+
+        "3D world.\n\n"
+
+        "The material environment is a 3D space, which means all objects have x, y, and z "
+        "dimensions. The z-axis is perpendicularly aligned to the plane of the display, with the "
+        "positive z-axis extending towards the viewer. Every sheet of material occupies a single "
+        "position along the z-axis and has a standard 1dp thickness.\n"
+        "On the web, the z-axis is used for layering and not for perspective. The 3D world is "
+        "emulated by manipulating the y-axis.\n\n"
+
+        "Light and shadow.\n\n"
+
+        "Within the material environment, virtual lights illuminate the scene. Key lights create "
+        "directional shadows, while ambient light creates soft shadows from all angles.\n"
+        "Shadows in the material environment are cast by these two light sources. In Android "
+        "development, shadows occur when light sources are blocked by sheets of material at "
+        "various positions along the z-axis. On the web, shadows are depicted by manipulating the "
+        "y-axis only. The following example shows the card with a height of 6dp.\n\n"
+
+        "Resting elevation.\n\n"
+
+        "All material objects, regardless of size, have a resting elevation, or default elevation "
+        "that does not change. If an object changes elevation, it should return to its resting "
+        "elevation as soon as possible.\n\n"
+
+        "Component elevations.\n\n"
+
+        "The resting elevation for a component type is consistent across apps (e.g., FAB elevation "
+        "does not vary from 6dp in one app to 16dp in another app).\n"
+        "Components may have different resting elevations across platforms, depending on the depth "
+        "of the environment (e.g., TV has a greater depth than mobile or desktop).\n\n"
+
+        "Responsive elevation and dynamic elevation offsets.\n\n"
+
+        "Some component types have responsive elevation, meaning they change elevation in response "
+        "to user input (e.g., normal, focused, and pressed) or system events. These elevation "
+        "changes are consistently implemented using dynamic elevation offsets.\n"
+        "Dynamic elevation offsets are the goal elevation that a component moves towards, relative "
+        "to the component’s resting state. They ensure that elevation changes are consistent "
+        "across actions and component types. For example, all components that lift on press have "
+        "the same elevation change relative to their resting elevation.\n"
+        "Once the input event is completed or cancelled, the component will return to its resting "
+        "elevation.\n\n"
+
+        "Avoiding elevation interference.\n\n"
+
+        "Components with responsive elevations may encounter other components as they move between "
+        "their resting elevations and dynamic elevation offsets. Because material cannot pass "
+        "through other material, components avoid interfering with one another any number of ways, "
+        "whether on a per component basis or using the entire app layout.\n"
+        "On a component level, components can move or be removed before they cause interference. "
+        "For example, a floating action button (FAB) can disappear or move off screen before a "
+        "user picks up a card, or it can move if a snackbar appears.\n"
+        "On the layout level, design your app layout to minimize opportunities for interference. "
+        "For example, position the FAB to one side of stream of a cards so the FAB won’t interfere "
+        "when a user tries to pick up one of cards.\n\n"
+    </string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_probna">ProbnaActivity</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
+    <string name="tab_text_3">Tab 3</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="pon">pon</string>
+    <string name="uto">uto</string>
+    <string name="sre">sre</string>
+    <string name="cet">cet</string>
+    <string name="pet">pet</string>
+    <string name="izberite_grupu">izberite grupu</string>
+</resources>
