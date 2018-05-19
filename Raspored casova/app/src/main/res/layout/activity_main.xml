@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="#CEFFFF">
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="@android:style/Widget.Holo.Light.ProgressBar.Large"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FF0000" />
+
+    <LinearLayout
+        android:id="@+id/vertikalna_podela_1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        android:orientation="vertical"
+        android:weightSum="100">
+
+        <TextView
+            android:id="@+id/Nivo_studija"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/ниво" />
+
+        <RadioGroup
+            android:id="@+id/rbLevel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_weight="20">
+
+            <RadioButton
+                android:id="@+id/osnovne"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/основне" />
+
+            <RadioButton
+                android:id="@+id/master"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/мастер" />
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/Modul"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/модул" />
+
+        <RadioGroup
+            android:id="@+id/rbModul"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_weight="20">
+
+            <RadioButton
+                android:id="@+id/informatika"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/информатика" />
+
+            <RadioButton
+                android:id="@+id/matematika"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/математика" />
+
+            <RadioButton
+                android:id="@+id/astronomija"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/астрономија" />
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/Smer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/смер"
+            android:visibility="invisible" />
+
+        <LinearLayout
+            android:id="@+id/horizontalna_podela_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_weight="50"
+            android:baselineAligned="false"
+            android:orientation="horizontal"
+            android:paddingBottom="5dp"
+            android:weightSum="100">
+
+            <RelativeLayout
+                android:id="@+id/relativna_podela_smerovi"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="50">
+
+                <RadioGroup
+                    android:id="@+id/rgSmerM"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="invisible"
+                    app:layout_constraintStart_toStartOf="parent">
+
+                    <RadioButton
+                        android:id="@+id/ML"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/мл" />
+
+                    <RadioButton
+                        android:id="@+id/MM"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/мм" />
+
+                    <RadioButton
+                        android:id="@+id/MR"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/мр" />
+
+                    <RadioButton
+                        android:id="@+id/MP"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/мп" />
+
+                    <RadioButton
+                        android:id="@+id/MS"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/мс" />
+
+                    <RadioButton
+                        android:id="@+id/MA"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/ма" />
+                </RadioGroup>
+
+                <RadioGroup
+                    android:id="@+id/rgSmerA"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="invisible"
+                    app:layout_constraintStart_toStartOf="parent">
+
+                    <RadioButton
+                        android:id="@+id/AI"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/аи" />
+
+                    <RadioButton
+                        android:id="@+id/AF"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/аф" />
+                </RadioGroup>
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/vertikalna_podela_godine"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="50"
+                android:orientation="vertical"
+                android:visibility="invisible">
+
+                <TextView
+                    android:id="@+id/godine"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:text="@string/жг"
+                    app:layout_constraintStart_toEndOf="@+id/rgSmerA"
+                    app:layout_constraintTop_toBottomOf="@+id/vertikalna_podela_1" />
+
+                <CheckBox
+                    android:id="@+id/god1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/_1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/vertikalna_podela_1" />
+
+                <CheckBox
+                    android:id="@+id/god2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/_2"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/god1" />
+
+                <CheckBox
+                    android:id="@+id/god3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/_3"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/god2" />
+
+                <CheckBox
+                    android:id="@+id/god4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/_4"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/god3" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/dugmeMain"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/даље"
+            android:background="@android:drawable/zoom_plate"
+            android:drawableEnd="@android:drawable/ic_media_play"
+            android:textColor="#FFFFFF" />
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

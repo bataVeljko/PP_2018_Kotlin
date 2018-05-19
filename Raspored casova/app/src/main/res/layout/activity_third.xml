@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ThirdActivity"
+    android:background="#CEFFFF">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        android:orientation="vertical"
+        android:weightSum="100">
+
+
+        <TextView
+            android:id="@+id/izborGrupe"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/игрупу" />
+
+        <ListView
+            android:id="@+id/spisakGrupa"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#FF1100"
+            android:textColor="#FFFFFF"
+            android:layout_weight="50" />
+
+        <TextView
+            android:id="@+id/izborLokacije"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="15dp"
+            android:text="@string/илокацију" />
+
+        <ListView
+            android:id="@+id/spisakLokacija"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="50" />
+
+        <Button
+            android:id="@+id/dugmeThird"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:drawable/zoom_plate"
+            android:drawableEnd="@android:drawable/ic_media_play"
+            android:textColor="#FFFFFF"
+            android:text="@string/даље" />
+
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>

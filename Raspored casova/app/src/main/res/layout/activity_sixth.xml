@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.veljko.projekat.LoginActivity"
+    android:background="#CEFFFF">
+
+    <LinearLayout
+        android:id="@+id/vertikalnaPodela"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/sacuvaj"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="25dp"
+            android:background="@android:drawable/zoom_plate"
+            android:drawableEnd="@android:drawable/ic_menu_save"
+            android:textColor="#FFFFFF"
+            android:text="@string/сачувај" />
+
+        <Button
+            android:id="@+id/pocetna"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="25dp"
+            android:background="@android:drawable/zoom_plate"
+            android:drawableEnd="@android:drawable/ic_media_rew"
+            android:textColor="#FFFFFF"
+            android:text="@string/почетак" />
+
+        <Button
+            android:id="@+id/zatvori"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="25dp"
+            android:background="@android:drawable/zoom_plate"
+            android:drawableEnd="@android:drawable/ic_delete"
+            android:textColor="#FF0000"
+            android:text="@string/затвори" />
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>

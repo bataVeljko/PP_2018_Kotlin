@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SecondActivity"
+    android:background="#CEFFFF">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical"
+        android:weightSum="100"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textViewMoguci"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingBottom="5dp"
+                android:text="@string/мпредмети"
+                tools:layout_editor_absoluteX="5dp"
+                tools:layout_editor_absoluteY="0dp" />
+
+            <Button
+                android:id="@+id/izaberiSvePredmete"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/ис" />
+        </LinearLayout>
+
+        <ListView
+            android:id="@+id/spisakPredmeta"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="50"
+            android:background="#FF1100"
+            android:scrollbars="horizontal"
+            android:textColor="#FFFFFF" />
+
+        <TextView
+            android:id="@+id/textViewIzabrani"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:paddingBottom="5dp"
+            android:text="@string/ипредмети" />
+
+        <ListView
+            android:id="@+id/izabraniPredmeti"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="50"
+            android:background="#11FF00"
+            android:scrollbars="horizontal"
+            android:textColor="#FFFFFF"
+            app:layout_constraintTop_toBottomOf="@+id/spisakPredmeta" />
+
+        <Button
+            android:id="@+id/dugmeSecond"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:drawable/zoom_plate"
+            android:drawableEnd="@android:drawable/ic_media_play"
+            android:textColor="#FFFFFF"
+            android:text="@string/даље" />
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

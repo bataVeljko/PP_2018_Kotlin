@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#CEFFFF"
+    tools:context="com.example.veljko.projekat.LoginActivity">
+
+    <LinearLayout
+        android:id="@+id/vertikalnaPodela"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/noviRaspored"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="25dp"
+            android:background="@android:drawable/zoom_plate"
+            android:drawableEnd="@android:drawable/ic_media_play"
+            android:textColor="#FFFFFF"
+            android:text="@string/нови" />
+
+        <Button
+            android:id="@+id/postojeciRaspored"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="25dp"
+            android:background="@android:drawable/zoom_plate"
+            android:drawableEnd="@android:drawable/ic_media_ff"
+            android:textColor="#FFFFFF"
+            android:text="@string/постојећи" />
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>
