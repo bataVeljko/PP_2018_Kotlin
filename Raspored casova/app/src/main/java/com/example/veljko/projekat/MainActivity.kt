@@ -9,7 +9,6 @@ import android.support.v7.app.AppCompatActivity
 import android.view.View.INVISIBLE
 import android.view.View.VISIBLE
 import android.widget.*
-import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -22,8 +21,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
 
-        //lista svih casova koji se nalaze u fajlu 'casovi.json'
-        //makeObjects()
         //httpZahtevi()
 
         val pbProgressBar = findViewById<ProgressBar>(R.id.progressBar)
@@ -147,8 +144,10 @@ class MainActivity : AppCompatActivity() {
                 when (izabraniModul) {
                     rbModulMatematika.id -> {
                         filtriraniCasovi = filtriraniCasovi.filter { cas -> !cas.grupa.toList().contains('И') }
-                        val izabraniSmer = rgSmerM.checkedRadioButtonId
-                        if (!cbPrvaGodina.isChecked) {
+                        val pomocniFiltriraniCasoviZaPrvuGodinu = filtriraniCasovi.filter { cas -> cas.godina == 1 }
+
+                        val izabraniSmer = rgGrupaMatematika.checkedRadioButtonId
+                        if (!rbMasterStudije.isChecked) {
                             when (izabraniSmer) {
                                 rbSmerMM.id -> filtriraniCasovi = filtriraniCasovi.filter { cas -> cas.grupa.toList().contains('М') }
                                 rbSmerML.id -> filtriraniCasovi = filtriraniCasovi.filter { cas -> cas.grupa.toList().contains('Л') }
@@ -156,7 +155,7 @@ class MainActivity : AppCompatActivity() {
                                 rbSmerMP.id -> filtriraniCasovi = filtriraniCasovi.filter { cas -> cas.grupa.toList().contains('Н') }
                                 rbSmerMS.id -> filtriraniCasovi = filtriraniCasovi.filter { cas -> cas.grupa.toList().contains('В') }
                                 rbSmerMA.id -> {
-                                    poruka("Trenutno nedostupan smer - 'Astronomija',\nizaberite drugi")
+                                    poruka("Trenutno nedostupan smer - 'Astronomija'\nIzaberite drugi")
                                     startNextActivityQuestion = false
                                 }
                                 else -> {
@@ -164,18 +163,37 @@ class MainActivity : AppCompatActivity() {
                                     startNextActivityQuestion = false
                                 }
                             }
-                        } else {
-                            if (izabraniSmer == rbSmerMA.id) {
-                                poruka("Trenutno nedostupan smer - 'Astronomija',\nizaberite drugi")
-                                startNextActivityQuestion = false
+                        }
+                        else {
+                            when (izabraniSmer) {
+                                rbSmerMM.id -> filtriraniCasovi = filtriraniCasovi.filter { cas -> cas.grupa.trim() == "5ММ" }
+                                rbSmerML.id -> filtriraniCasovi = filtriraniCasovi.filter { cas -> cas.grupa.toList().contains('Л') }
+                                rbSmerMR.id -> filtriraniCasovi = filtriraniCasovi.filter { cas -> cas.grupa.toList().contains('Р') }
+                                rbSmerMP.id -> filtriraniCasovi = filtriraniCasovi.filter { cas -> cas.grupa.toList().contains('Н') }
+                                rbSmerMS.id -> filtriraniCasovi = filtriraniCasovi.filter { cas -> cas.grupa.toList().contains('В') }
+                                rbSmerMA.id -> {
+                                    poruka("Trenutno nedostupan smer - 'Astronomija'\nIzaberite drugi")
+                                    startNextActivityQuestion = false
+                                }
+                                else -> {
+                                    poruka("Niste izabrali smer!")
+                                    startNextActivityQuestion = false
+                                }
                             }
                         }
+
+                        if(cbPrvaGodina.isChecked){
+                            filtriraniCasovi += pomocniFiltriraniCasoviZaPrvuGodinu
+                        }
                     }
+
                     rbModulInformatika.id -> filtriraniCasovi = filtriraniCasovi.filter { cas -> cas.grupa.toList().contains('И') }
+
                     rbModulAstronomija.id -> {
                         poruka("Trenutno nedostupan modul - 'Astronomija',\nizaberite drugi")
                         startNextActivityQuestion = false
                     }
+
                     else -> {
                         poruka("Niste izabrali modul!")
                         startNextActivityQuestion = false

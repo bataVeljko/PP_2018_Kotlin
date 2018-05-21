@@ -7,11 +7,16 @@ import android.widget.Button
 
 class LoginActivity : AppCompatActivity() {
 
+    //ideja za skidanje podataka
+    //ponuditi korisniku opciju da samo jednom skine raspored
+    //skinuti raspored smestiti u bazu podataka i iz nje izvlaciti podatke
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        //ako smo dobili flag iz poslednje aktivnosti, znaci da korisnik zeli da zatvori program
+        //ako dobijemo flag iz poslednje aktivnosti, znaci da korisnik zeli da zatvori program
         if(intent.getBooleanExtra("EXIT", false)) finish()
 
         val btnNovi = findViewById<Button>(R.id.noviRaspored)

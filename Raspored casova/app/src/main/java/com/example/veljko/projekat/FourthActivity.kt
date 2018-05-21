@@ -17,12 +17,6 @@ private const val RESULT = 12345
 
 class FourthActivity : AppCompatActivity() {
 
-    //zamena za static promenljivu iz Jave
-    //koristimo zbog provere da li podatke dobijamo odavde ili iz baze sacuvanih podataka
-    companion object {
-        var isActive = false
-    }
-
     private var dobijeniCasovi = arrayListOf<Predmet>()
     private val izabraniCasovi = arrayListOf<Predmet>()
     private var grupe = arrayListOf<String>()
@@ -34,8 +28,6 @@ class FourthActivity : AppCompatActivity() {
         setContentView(R.layout.activity_fourth)
         //radi bolje preglednosti
         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
-
-        isActive = true
 
         dobijeniCasovi = intent.getParcelableArrayListExtra<Predmet>("filtriraniCasoviIzTreceAktivnosti")
         grupe = intent.getStringArrayListExtra("grupe")

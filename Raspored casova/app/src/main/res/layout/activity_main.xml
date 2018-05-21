@@ -134,13 +134,13 @@
                         android:id="@+id/MP"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/мп" />
+                        android:text="@string/мн" />
 
                     <RadioButton
                         android:id="@+id/MS"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/мс" />
+                        android:text="@string/мв" />
 
                     <RadioButton
                         android:id="@+id/MA"

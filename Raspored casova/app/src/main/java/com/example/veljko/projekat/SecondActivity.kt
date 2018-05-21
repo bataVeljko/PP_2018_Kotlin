@@ -43,19 +43,19 @@ class SecondActivity : AppCompatActivity() {
         //dugme za laksi izbor svih predmeta
         val btnSveIliNista = findViewById<Button>(R.id.izaberiSvePredmete)
         btnSveIliNista.setOnClickListener { _ ->
-            if(btnSveIliNista.text == "Izaberi sve") {
+            if(btnSveIliNista.text == "Изабери све") {
                 izabraniPredmeti.addAll(moguciPredmeti)
                 lvIzabrani.adapter = adapterIzabrani
                 moguciPredmeti.clear()
                 lvMoguci.adapter = adapterMoguci
-                btnSveIliNista.text = "Ponisti sve"
+                btnSveIliNista.text = "Поништи све"
             }
             else{
                 moguciPredmeti.addAll(izabraniPredmeti)
                 lvMoguci.adapter = adapterMoguci
                 izabraniPredmeti.clear()
                 lvIzabrani.adapter = adapterIzabrani
-                btnSveIliNista.text = "Izaberi sve"
+                btnSveIliNista.text = "Изабери све"
             }
         }
 
@@ -89,11 +89,7 @@ class SecondActivity : AppCompatActivity() {
         val dugme = findViewById<Button>(R.id.dugmeSecond)
         dugme.setOnClickListener({
             var filtriraniCasovi = casovi.toList()
-
             filtriraniCasovi = filtriraniCasovi.filter { cas -> izabraniPredmeti.contains(cas.getNaziv()) }
-
-            /*for(cas in filtriraniCasovi)
-                Log.d("proba", cas.toString())*/
 
             val intent = Intent(this@SecondActivity, ThirdActivity::class.java)
             intent.putParcelableArrayListExtra("filtriraniCasoviIzDrugeAktivnosti" ,ArrayList(filtriraniCasovi))

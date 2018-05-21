@@ -210,4 +210,6 @@
     <string name="затвори">Затвори</string>
     <string name="матфраспоред">МАТФ распоред часова</string>
     <string name="почетак">Почетна страна</string>
+    <string name="мн">МН</string>
+    <string name="мв">МВ</string>
 </resources>
