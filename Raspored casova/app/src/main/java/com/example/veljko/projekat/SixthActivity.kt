@@ -31,7 +31,7 @@ class SixthActivity : AppCompatActivity() {
 
         adUpozorenje.setTitle("Нов распоред")
                 .setMessage("Да ли сте сигурни да желите заменити постојећи распоред?")
-                .setPositiveButton(android.R.string.yes, { _, _ ->
+                .setPositiveButton(android.R.string.yes) { _, _ ->
 
 
                     val upis = db.writableDatabase
@@ -45,10 +45,10 @@ class SixthActivity : AppCompatActivity() {
                         db.insertData(cas)
                     Toast.makeText(this, "Uspesno sacuvano", Toast.LENGTH_LONG).show()
                     btnSacuvaj.visibility = GONE
-                })
-                .setNegativeButton(android.R.string.no, { _, _ ->
+                }
+                .setNegativeButton(android.R.string.no) { _, _ ->
                     Toast.makeText(this, "Uspesno otkazano", Toast.LENGTH_LONG).show()
-                })
+                }
                 .setIcon(android.R.drawable.ic_dialog_alert)
 
         //ako smo pristupili aktivnosti iz login, znaci da korisnik zeli da pogleda zapamcene podatke, nema potrebe da cuva nista
@@ -57,21 +57,21 @@ class SixthActivity : AppCompatActivity() {
         else
             adUpozorenje.show()
 
-        btnSacuvaj.setOnClickListener({
+        btnSacuvaj.setOnClickListener {
             adUpozorenje.show()
-        })
+        }
 
-        btnPocetna.setOnClickListener({
+        btnPocetna.setOnClickListener {
             val intent = Intent(applicationContext, LoginActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
             startActivity(intent)
-        })
+        }
 
-        btnZatvori.setOnClickListener({
+        btnZatvori.setOnClickListener {
             val intent = Intent(applicationContext, LoginActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
             intent.putExtra("EXIT", true)
             startActivity(intent)
-        })
+        }
     }
 }

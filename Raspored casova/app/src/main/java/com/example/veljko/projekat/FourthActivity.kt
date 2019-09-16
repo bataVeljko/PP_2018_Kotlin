@@ -4,14 +4,24 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.pm.ActivityInfo
 import android.graphics.Color
+import android.graphics.PointF
+import android.graphics.Rect
+import android.graphics.RectF
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.view.Gravity
-import android.widget.Button
-import android.widget.TableRow
-import android.widget.TextView
-import android.widget.Toast
+import android.renderscript.Matrix2f
+import android.widget.*
 import java.util.ArrayList
+import kotlin.math.max
+import kotlin.math.min
+import android.support.v4.app.SupportActivity
+import android.support.v4.app.SupportActivity.ExtraData
+import android.support.v4.content.ContextCompat.getSystemService
+import android.icu.lang.UCharacter.GraphemeClusterBreak.T
+import android.support.v4.view.ViewCompat
+import android.view.*
+import android.view.GestureDetector.OnGestureListener
+import android.view.animation.ScaleAnimation
 
 private const val RESULT = 12345
 
@@ -21,7 +31,20 @@ class FourthActivity : AppCompatActivity() {
     private val izabraniCasovi = arrayListOf<Predmet>()
     private var grupe = arrayListOf<String>()
     private var odabranaGrupa = String()
-    private var grupaIzTmpa = String()
+    private var grupaIzTmpa : String? = String()
+
+    /*private var AXIS_Y_MIN: Float = -1.0f
+    private var AXIS_X_MIN: Float = -1.0f
+    private var AXIS_X_MAX: Float = 1.0f
+    private var AXIS_Y_MAX: Float = 1.0f
+    var viewSV : ScrollView? = null
+    var viewHSV : HorizontalScrollView? = null
+    var viewTL : TableLayout? = null
+    private lateinit var SGD : ScaleGestureDetector
+    lateinit var GD : GestureDetector
+    var scale = 1.0f
+    private val mCurrentViewport = RectF(AXIS_X_MIN, AXIS_Y_MIN, AXIS_X_MAX, AXIS_Y_MAX)
+    private val mContentRect: Rect? = null*/
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,30 +52,134 @@ class FourthActivity : AppCompatActivity() {
         //radi bolje preglednosti
         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
 
+        /*viewSV = findViewById(R.id.viewSV)
+        viewHSV = findViewById(R.id.viewHSV)
+        viewTL = findViewById(R.id.tabela)*/
+
         dobijeniCasovi = intent.getParcelableArrayListExtra<Predmet>("filtriraniCasoviIzTreceAktivnosti")
         grupe = intent.getStringArrayListExtra("grupe")
         odabranaGrupa = intent.getStringExtra("imeGrupe")
 
         val bGrupa = findViewById<Button>(R.id.drugaGrupa)
-        bGrupa.setOnClickListener({
+        bGrupa.setOnClickListener {
             val intent = Intent(this@FourthActivity, TmpActivity::class.java)
             intent.putExtra("grupe" ,grupe)
             startActivityForResult(intent, RESULT)
-        })
+        }
 
         val dugme = findViewById<Button>(R.id.dugmeFourth)
-        dugme.setOnClickListener({
+        dugme.setOnClickListener {
             val intent = Intent(this@FourthActivity, FifthActivity::class.java)
             intent.putParcelableArrayListExtra("filtriraniCasoviIzCetvrteAktivnosti" , ArrayList(izabraniCasovi))
             startActivity(intent)
+        }
+
+        /*
+        GD = GestureDetector(this, object : OnGestureListener{
+            override fun onShowPress(e: MotionEvent?) {
+                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+            }
+
+            override fun onSingleTapUp(e: MotionEvent?): Boolean {
+                return true
+            }
+
+            override fun onDown(e: MotionEvent?): Boolean {
+                return true
+            }
+
+            override fun onFling(e1: MotionEvent?, e2: MotionEvent?, velocityX: Float, velocityY: Float): Boolean {
+                mContentRect?.apply {
+                    // Pixel offset is the offset in screen pixels, while viewport offset is the
+                    // offset within the current viewport.
+                    val viewportOffsetX = velocityX * mCurrentViewport.width() / width()
+                    val viewportOffsetY = -velocityY * mCurrentViewport.height() / height()
+
+
+                    // Updates the viewport, refreshes the display.
+                    mCurrentViewport.set(
+                            mCurrentViewport.left + viewportOffsetX,
+                            mCurrentViewport.bottom + viewportOffsetY,
+                            0f,
+                            0f
+                    )
+                }
+
+                return true
+            }
+
+            override fun onLongPress(e: MotionEvent?) {
+                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+            }
+
+            override fun onScroll(e1: MotionEvent?, e2: MotionEvent?, distanceX: Float, distanceY: Float): Boolean {
+                mContentRect?.apply {
+                    // Pixel offset is the offset in screen pixels, while viewport offset is the
+                    // offset within the current viewport.
+                    val viewportOffsetX = distanceX * mCurrentViewport.width() / width()
+                    val viewportOffsetY = -distanceY * mCurrentViewport.height() / height()
+
+
+                    // Updates the viewport, refreshes the display.
+                    mCurrentViewport.set(
+                            mCurrentViewport.left + viewportOffsetX,
+                            mCurrentViewport.bottom + viewportOffsetY,
+                            0f,
+                            0f
+                    )
+                }
+
+                return true
+            }
         })
+
+        SGD = ScaleGestureDetector(this, object: ScaleGestureDetector.SimpleOnScaleGestureListener(){
+            private val viewportFocus = PointF()
+            private var lastSpanX: Float = 0f
+            private var lastSpanY: Float = 0f
+
+            override fun onScaleBegin(detector: ScaleGestureDetector?): Boolean {
+                lastSpanX = SGD.currentSpanX
+                lastSpanY = SGD.currentSpanY
+                return true
+            }
+
+            override fun onScale(detector: ScaleGestureDetector?): Boolean {
+                val spanX: Float = SGD.currentSpanX
+                val spanY: Float = SGD.currentSpanY
+
+                val newWidth: Float = lastSpanX / spanX * mCurrentViewport.width()
+                val newHeight: Float = lastSpanY / spanY * mCurrentViewport.height()
+
+                val focusX: Float = SGD.focusX
+                val focusY: Float = SGD.focusY
+
+                mContentRect?.apply {
+                    mCurrentViewport.set(
+                            viewportFocus.x - newWidth * (focusX - left) / width(),
+                            viewportFocus.y - newHeight * (bottom - focusY) / height(),
+                            0f,
+                            0f
+                    )
+                }
+                mCurrentViewport.right = mCurrentViewport.left + newWidth
+                mCurrentViewport.bottom = mCurrentViewport.top + newHeight
+
+                // Invalidates the View to update the display.
+                ViewCompat.postInvalidateOnAnimation(viewSV!!)
+
+                lastSpanX = spanX
+                lastSpanY = spanY
+                return true
+            }
+        })*/
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent) {
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == RESULT) {
              if(resultCode == RESULT_OK) {
-                grupaIzTmpa = data.getStringExtra("imeGrupe")
+                grupaIzTmpa = data?.getStringExtra("imeGrupe")
              }
         }
     }
@@ -62,7 +189,7 @@ class FourthActivity : AppCompatActivity() {
         super.onResume()
 
         //proverava se koja je grupa odabrana, i da li je grupa iz prethodne ili pomocne aktivnosti
-        val odabranaGrupa: String = if(grupaIzTmpa == "")
+        val odabranaGrupa: String? = if(grupaIzTmpa == "")
             intent.getStringExtra("imeGrupe")
         else
             grupaIzTmpa
@@ -90,6 +217,19 @@ class FourthActivity : AppCompatActivity() {
         popuniRed("Петак", casovi, trPetak)
     }
 
+    /*override fun dispatchTouchEvent(ev: MotionEvent?): Boolean {
+        super.dispatchTouchEvent(ev)
+        SGD.onTouchEvent(ev)
+        GD.onTouchEvent(ev)
+        return GD.onTouchEvent(ev)
+    }
+
+    override fun onTouchEvent(event: MotionEvent): Boolean {
+        return SGD.onTouchEvent(event)
+                || GD.onTouchEvent(event)
+                || super.onTouchEvent(event)
+    }*/
+
     private fun popuniRed(imeDana: String, casovi: List<Predmet>, red: TableRow){
         red.removeViews(1, red.childCount-1)
 
@@ -116,7 +256,7 @@ class FourthActivity : AppCompatActivity() {
                 tv.setBackgroundColor(Color.GREEN)
 
             tv.isClickable = true
-            tv.setOnClickListener({
+            tv.setOnClickListener {
                 //prvo se proverava da li je cas vec izabran
                 //zatim da li je izabran u neoj drugoj grupi
                 //i zatim da li postoji preklapanje sa nekim izabranim casom iz drugih grupa
@@ -139,7 +279,7 @@ class FourthActivity : AppCompatActivity() {
                         tv.isClickable = false
                     }
                 }
-            })
+            }
             tv.text = cas.toString()
             red.addView(tv)
 

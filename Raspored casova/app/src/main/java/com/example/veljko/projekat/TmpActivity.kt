@@ -2,9 +2,14 @@ package com.example.veljko.projekat
 
 import android.content.Intent
 import android.content.pm.ActivityInfo
+import android.opengl.Matrix
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.renderscript.Matrix2f
+import android.view.ScaleGestureDetector
 import android.widget.*
+import kotlin.math.max
+import kotlin.math.min
 
 class TmpActivity : AppCompatActivity() {
 
@@ -29,6 +34,8 @@ class TmpActivity : AppCompatActivity() {
             finish()
         }
     }
+
+
 
     override fun onBackPressed() {
         Toast.makeText(this, "Nema nazad", Toast.LENGTH_SHORT).show()

@@ -93,7 +93,7 @@ class MainActivity : AppCompatActivity() {
         val cbCetvrtaGodina = findViewById<CheckBox>(R.id.god4)
 
 
-        dugme.setOnClickListener({
+        dugme.setOnClickListener {
             val imenaPredmeta = arrayListOf<String>()
 
             var startNextActivityQuestion = true  //ako neko dugme ili checkbox nije odabrano, nece se prebaciti na sledecu aktivnost
@@ -210,7 +210,7 @@ class MainActivity : AppCompatActivity() {
                 startActivity(intent)
                 //finish()
             }
-        })
+        }
     }
 
     private fun poruka(msg: String) {

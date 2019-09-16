@@ -65,7 +65,7 @@ class ThirdActivity : AppCompatActivity() {
         }
 
         val dugme = findViewById<Button>(R.id.dugmeThird)
-        dugme.setOnClickListener({
+        dugme.setOnClickListener {
             var filtriraniCasovi = casovi.toList()
             val pomocniFiltriraniCasoviZaLokacije = mutableListOf<Predmet>()
 
@@ -76,7 +76,7 @@ class ThirdActivity : AppCompatActivity() {
             if(izabraneLokacije.contains("Trg"))
                 pomocniFiltriraniCasoviZaLokacije.addAll(filtriraniCasovi.filter { cas -> (!cas.getUcionica().startsWith("ЈАГ") && !cas.getUcionica().startsWith("Н")) })
             //ako nije izabrana nijedna lokacija, sve ce biti uzete u obzir
-            if(!izabraneLokacije.isEmpty())
+            if(izabraneLokacije.isNotEmpty())
                 filtriraniCasovi = pomocniFiltriraniCasoviZaLokacije
 
             if(izabranaGrupa != ""){
@@ -89,6 +89,6 @@ class ThirdActivity : AppCompatActivity() {
             }
             else
                 Toast.makeText(this@ThirdActivity, "Niste izabrali nijednu grupu", Toast.LENGTH_SHORT).show()
-        })
+        }
     }
 }

@@ -87,7 +87,7 @@ class SecondActivity : AppCompatActivity() {
 
         //prelazak na sledecu stranu
         val dugme = findViewById<Button>(R.id.dugmeSecond)
-        dugme.setOnClickListener({
+        dugme.setOnClickListener {
             var filtriraniCasovi = casovi.toList()
             filtriraniCasovi = filtriraniCasovi.filter { cas -> izabraniPredmeti.contains(cas.getNaziv()) }
 
@@ -95,6 +95,6 @@ class SecondActivity : AppCompatActivity() {
             intent.putParcelableArrayListExtra("filtriraniCasoviIzDrugeAktivnosti" ,ArrayList(filtriraniCasovi))
             startActivity(intent)
             //finish()
-        })
+        }
     }
 }

@@ -58,7 +58,7 @@ class FifthActivity : AppCompatActivity() {
         override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                                   savedInstanceState: Bundle?): View? {
             //provera po tabovima
-            return when(arguments.getInt(ARG_SECTION_NUMBER)){
+            return when(arguments?.getInt(ARG_SECTION_NUMBER)){
                 1 -> kreirajTab("Понедељак", inflater)
                 2 -> kreirajTab("Уторак", inflater)
                 3 -> kreirajTab("Среда", inflater)
